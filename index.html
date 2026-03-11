@@ -9,7 +9,7 @@
 
 <header>
 <h1>Aurelia Hotel</h1>
-<p>Roblox Hospitality Community</p>
+<p>A growing Roblox hotel community for roleplay, fun, and events.</p>
 </header>
 
 <nav>
@@ -21,22 +21,40 @@
 
 <section>
 <div class="card">
-
 <h2>About Us</h2>
+<p>Welcome to Aurelia Hotel! Join our Roblox hotel community where members can roleplay, meet new people, and enjoy a professional hotel experience.</p>
+</div>
 
-<p>
-Welcome to Aurelia Hotel!  
-We are a growing Roblox hotel community focused on roleplay,
-hospitality, and creating a fun environment for everyone.
-</p>
-
-<p>
-Join our community, meet new people, and enjoy the experience
-of running and visiting a professional Roblox hotel!
-</p>
-
+<div class="card">
+<h2>Community Stats</h2>
+<div id="counters">
+<p>👥 Roblox Group Members: <span id="robloxCount">Loading...</span></p>
+<p>💬 Discord Members: <span id="discordCount">Loading...</span></p>
+</div>
 </div>
 </section>
+
+<script>
+// --- Roblox Group Count ---
+fetch("https://groups.roblox.com/v1/groups/345725579")
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById("robloxCount").textContent = data.memberCount;
+  })
+  .catch(() => {
+    document.getElementById("robloxCount").textContent = "N/A";
+  });
+
+// --- Discord Server Count ---
+fetch("https://discord.com/api/v9/invites/vtfrvtPWg?with_counts=true")
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById("discordCount").textContent = data.approximate_member_count;
+  })
+  .catch(() => {
+    document.getElementById("discordCount").textContent = "N/A";
+  });
+</script>
 
 </body>
 </html>
