@@ -1,60 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Aurelia Hotel</title>
-<link rel="stylesheet" href="style.css">
+  <title>Aurelia Hotel</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header>
-<h1>Aurelia Hotel</h1>
-<p>A growing Roblox hotel community for roleplay, fun, and events.</p>
+  <h1>Aurelia Hotel</h1>
+  <p>A growing Roblox hotel community for roleplay, fun, and events.</p>
 </header>
 
 <nav>
-<a href="index.html">About</a>
-<a href="news.html">News</a>
-<a href="links.html">Links</a>
-<a href="question.html">Ask a Question</a>
+  <a href="index.html">About</a>
+  <a href="news.html">News</a>
+  <a href="links.html">Links</a>
+  <a href="question.html">Ask a Question</a>
 </nav>
 
 <section>
-<div class="card">
-<h2>About Us</h2>
-<p>Welcome to Aurelia Hotel! Join our Roblox hotel community where members can roleplay, meet new people, and enjoy a professional hotel experience.</p>
-</div>
+  <!-- About -->
+  <div class="card">
+    <h2>About Us</h2>
+    <p>
+      Welcome to Aurelia Hotel! Join our Roblox hotel community where members can roleplay, meet new people, and enjoy a professional hotel experience.
+    </p>
+  </div>
 
-<div class="card">
-<h2>Community Stats</h2>
-<div id="counters">
-<p>👥 Roblox Group Members: <span id="robloxCount">Loading...</span></p>
-<p>💬 Discord Members: <span id="discordCount">Loading...</span></p>
-</div>
-</div>
+  <!-- Community Stats -->
+  <div class="card">
+    <h2>Community Stats</h2>
+    <p>💬 Discord Members: 70+</p>
+    <p>👥 Roblox Group Members:</p>
+    <div style="text-align:center; margin-top:10px;">
+      <iframe 
+        src="https://www.roblox.com/groups/345725579/aurelia-hotel" 
+        style="width:300px; height:400px; border:none;">
+      </iframe>
+    </div>
+  </div>
+
+  <!-- Feature Boxes -->
+  <div class="card">
+    <h2>Our Features</h2>
+    <div style="display:flex; flex-wrap:wrap; gap:20px; justify-content:center;">
+      
+      <div style="background:#1e293b; padding:20px; border-radius:10px; flex:1 1 250px; min-width:250px; text-align:center;">
+        <h3>Friendly Community</h3>
+        <p>Meet new players, make friends, and enjoy hotel roleplay together.</p>
+      </div>
+      
+      <div style="background:#1e293b; padding:20px; border-radius:10px; flex:1 1 250px; min-width:250px; text-align:center;">
+        <h3>Professional Staff</h3>
+        <p>Our trained staff ensures a smooth and fun hotel experience for everyone.</p>
+      </div>
+      
+      <div style="background:#1e293b; padding:20px; border-radius:10px; flex:1 1 250px; min-width:250px; text-align:center;">
+        <h3>Events & Activities</h3>
+        <p>Participate in regular events, games, and community activities hosted by our team.</p>
+      </div>
+      
+    </div>
+  </div>
+
 </section>
-
-<script>
-// --- Roblox Group Count ---
-fetch("https://groups.roblox.com/v1/groups/345725579")
-  .then(response => response.json())
-  .then(data => {
-    document.getElementById("robloxCount").textContent = data.memberCount;
-  })
-  .catch(() => {
-    document.getElementById("robloxCount").textContent = "N/A";
-  });
-
-// --- Discord Server Count ---
-fetch("https://discord.com/api/v9/invites/vtfrvtPWg?with_counts=true")
-  .then(response => response.json())
-  .then(data => {
-    document.getElementById("discordCount").textContent = data.approximate_member_count;
-  })
-  .catch(() => {
-    document.getElementById("discordCount").textContent = "N/A";
-  });
-</script>
 
 </body>
 </html>
