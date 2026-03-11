@@ -19,11 +19,8 @@
 </nav>
 
 <section>
-
 <div class="card">
-
 <h2>Ask Staff</h2>
-
 <p>You can ask a question privately to the staff team.</p>
 
 <input id="discord" placeholder="Discord Username">
@@ -33,31 +30,23 @@
 <div id="questionError" class="error"></div>
 
 <button onclick="sendQuestion()">Send Question</button>
-
 </div>
-
 </section>
 
 <script>
-
 function sendQuestion(){
-
 let username=document.getElementById("discord").value.trim()
 let question=document.getElementById("question").value.trim()
-
 let userError=document.getElementById("userError")
 let questionError=document.getElementById("questionError")
-
 userError.textContent=""
 questionError.textContent=""
-
 let valid=true
 
 if(username===""){
 userError.textContent="This cannot be empty!"
 valid=false
 }
-
 if(question===""){
 questionError.textContent="This cannot be empty!"
 valid=false
@@ -66,40 +55,25 @@ else if(question.length<5){
 questionError.textContent="Question must be more than 5 characters!"
 valid=false
 }
-
 if(!valid) return
 
 fetch("https://discord.com/api/webhooks/1480908432855793664/FH4bkyVHpdzACSMqdS0HIdB6suKXKQpKl30dPV9yq5wSO9J0-WQdZqqzs8ve--ycrHuK",{
-
 method:"POST",
-
-headers:{
-"Content-Type":"application/json"
-},
-
+headers:{"Content-Type":"application/json"},
 body:JSON.stringify({
-
 embeds:[{
 title:"Question",
 description:"A question has been asked in the website:\n\n**"+question+"**\n\nDiscord User: "+username,
 color:5793266
 }]
-
 })
-
 })
-
 .then(()=>{
-
 alert("Question sent!")
-
 document.getElementById("discord").value=""
 document.getElementById("question").value=""
-
 })
-
 }
-
 </script>
 
 </body>
