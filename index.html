@@ -30,8 +30,14 @@
   <!-- Community Stats -->
   <div class="card">
     <h2>Community Stats</h2>
-    <p>💬 Discord Members: <span id="discordCount">Loading...</span></p>
-    <p>👥 Roblox Group Members: <span id="robloxCount">Loading...</span></p>
+    <p>💬 Discord Members: 70+</p>
+    <p>👥 Roblox Group Members:</p>
+    <div style="text-align:center; margin-top:10px;">
+      <iframe 
+        src="https://www.roblox.com/groups/345725579/aurelia-hotel" 
+        style="width:300px; height:400px; border:none;">
+      </iframe>
+    </div>
   </div>
 
   <!-- Feature Boxes -->
@@ -58,28 +64,6 @@
   </div>
 
 </section>
-
-<script>
-// --- Discord Member Count ---
-fetch("https://discord.com/api/v9/invites/vtfrvtPWg?with_counts=true")
-  .then(response => response.json())
-  .then(data => {
-    document.getElementById("discordCount").textContent = data.approximate_member_count;
-  })
-  .catch(() => {
-    document.getElementById("discordCount").textContent = "N/A";
-  });
-
-// --- Roblox Group Member Count via RoProxy ---
-fetch("https://api.roproxy.com/groups/345725579")
-  .then(response => response.json())
-  .then(data => {
-    document.getElementById("robloxCount").textContent = data.memberCount;
-  })
-  .catch(() => {
-    document.getElementById("robloxCount").textContent = "N/A";
-  });
-</script>
 
 </body>
 </html>
